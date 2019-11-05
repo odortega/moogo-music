@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Platzi Music</string>
+    <string name="title_activity_main">Platzi Music</string>
+    <string name="package_name">platzi.music.oortega.com</string>
+    <string name="fileprovider_authority">platzi.music.oortega.com.fileprovider</string>
+    <string name="custom_url_scheme">platzi.music.oortega.com</string>
+</resources>
