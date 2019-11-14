@@ -56,4 +56,8 @@ export class LoginPage implements OnInit {
       this.errorMessage = "Login incorrecto";
     });
   }
+
+  goToRegister(){
+    this.navCtrl.navigateForward('/register');
+  }
 }
