@@ -7,7 +7,9 @@ import {
 } from '@angular/forms';
 import { AuthenticateService } from '../services/authenticate.service';
 import { NavController } from '@ionic/angular';
-
+import {Storage} from'@ionic/storage';
+  import { from } from 'rxjs';
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -27,7 +29,8 @@ export class LoginPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthenticateService,
-    private navCtrl: NavController) {
+    private navCtrl: NavController,
+    private storage: Storage) {
     this.loginForm = this.formBuilder.group({
       email: new FormControl("", Validators.compose([
         Validators.required,
@@ -47,7 +50,10 @@ export class LoginPage implements OnInit {
   loginUser(credentials) {
     this.authService.loginUser(credentials).then(res=>{
       this.errorMessage="";
+      this.storage.set('isUserLoggedIn',true);
       this.navCtrl.navigateForward("/home");
+    }).catch(err=>{
+      this.errorMessage = "Login incorrecto";
     });
   }
 }
