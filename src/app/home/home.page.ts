@@ -45,8 +45,15 @@ export class HomePage {
     modal.onDidDismiss().then(dataReturned=>{
       this.song = dataReturned.data;
     });
-
-
     modal.present();
   }
+
+  play(){
+    this.song.playing = true;
+  }
+
+  pause(){
+    this.song.playing = false;
+  }
+
 }
