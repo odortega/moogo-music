@@ -7,7 +7,7 @@ import { PlatziMusicService } from '../services/platzi-music.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  artists = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+  artists: any[]=[];
   songs: any[]=[];
   albums: any[]=[];
   slideOps = {
@@ -20,7 +20,7 @@ export class HomePage {
 
   ionViewDidEnter() {
     this.musicService.getNewReleases().then(newReleases => {
-      this.artists = newReleases.albums.items;
+      this.artists = this.musicService.getArtists();
       this.songs = newReleases.albums.items.filter(
         e => e.album_type == "single");
       this.albums = newReleases.albums.items.filter(
