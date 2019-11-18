@@ -30,6 +30,10 @@ export class PlatziMusicService {
         response => response.json());
   }
 
-
+  searchTracks(text) {
+    return fetch(
+      `https://platzi-music-api.now.sh/search?q=${text}&type=track`
+    ).then(response => response.json());
+  }
 
 }
