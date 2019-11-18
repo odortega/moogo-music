@@ -13,7 +13,7 @@ const routes: Routes = [
     canActivate: [LoginGuard, IntroGuard]
   },
   { path: 'songs-modal', 
-  loadChildren: './songs-modal/songs-modal.module#SongsModalPageModule' },
+  loadChildren: './songs-modal/songs-modal.module#SongsModalPageModule' }
 ];
 
 @NgModule({

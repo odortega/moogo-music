@@ -14,10 +14,14 @@ const routes: Routes = [
     children: [{
       path: 'home',
       loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
-      },{ 
-      path: 'settings', loadChildren: '../settings/settings.module#SettingsPageModule' },
+    }, {
+      path: 'settings', loadChildren: '../settings/settings.module#SettingsPageModule'
+    },
+    { path: 'sports', loadChildren: '../sports/sports.module#SportsPageModule' },
     {
-      path:'', redirectTo:'home', pathMatch:"full"
+      path: '',
+      redirectTo: 'home',
+      pathMatch: "full"
     }]
   }
 ];
