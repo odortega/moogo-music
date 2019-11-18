@@ -4,7 +4,7 @@ import { IntroGuard } from './guards/intro.guard';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'menu/home', pathMatch: 'full' },
+  { path: '', redirectTo: 'menu', pathMatch: 'full' },
   { path: 'intro', loadChildren: './intro/intro.module#IntroPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
@@ -12,7 +12,8 @@ const routes: Routes = [
     path: 'menu', loadChildren: './menu/menu.module#MenuPageModule',
     canActivate: [LoginGuard, IntroGuard]
   },
-  { path: 'songs-modal', loadChildren: './songs-modal/songs-modal.module#SongsModalPageModule' },
+  { path: 'songs-modal', 
+  loadChildren: './songs-modal/songs-modal.module#SongsModalPageModule' },
 ];
 
 @NgModule({

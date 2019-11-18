@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -15,7 +15,7 @@ import {Storage} from'@ionic/storage';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   loginForm: FormGroup;
   validation_messages = {
     email: [
@@ -42,9 +42,6 @@ export class LoginPage implements OnInit {
       ]))
 
     });
-  }
-
-  ngOnInit() {
   }
 
   loginUser(credentials) {
