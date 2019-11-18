@@ -23,4 +23,13 @@ export class PlatziMusicService {
       `https://platzi-music-api.now.sh/artists/${artistId}/top-tracks?country=CO`).then(
         response => response.json());
   }
+
+  getAlbumTracks(albumId) {
+    return fetch(
+      `https://platzi-music-api.now.sh/albums/${albumId}/tracks?country=CO`).then(
+        response => response.json());
+  }
+
+
+
 }

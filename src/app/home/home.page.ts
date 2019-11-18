@@ -35,13 +35,13 @@ export class HomePage {
     });
   }
 
-  async showSongs(artist) {
+  async showSongsByArtist(artist) {
     const songs = await this.musicService.getArtistTopTracks(artist.id);
     const modal = await this.modalController.create({
       component: SongsModalPage,
       componentProps: {
         songs: songs.tracks,
-        artist: artist.name
+        artist_or_album: artist.name
       }
     });
     modal.onDidDismiss().then(dataReturned => {
@@ -49,6 +49,22 @@ export class HomePage {
     });
     modal.present();
   }
+
+  async showSongsByAlbum(album) {
+    const songs = await this.musicService.getAlbumTracks(album.id);
+    const modal = await this.modalController.create({
+      component: SongsModalPage,
+      componentProps: {
+        songs: songs.items,
+        artist_or_album: album.name
+      }
+    });
+    modal.onDidDismiss().then(dataReturned => {
+      this.song = dataReturned.data;
+    });
+    modal.present();
+  }
+
 
   play() {
     this.currentSong = new Audio(this.song.preview_url);
